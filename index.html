@@ -849,55 +849,233 @@
         /* Contact Section */
         .contact {
             padding: 6rem 0;
-            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 25%, #3b82f6 50%, #60a5fa 75%, #dbeafe 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(219, 234, 254, 0.05) 0%, transparent 50%);
+            animation: float 25s ease-in-out infinite;
+        }
+
+        .contact::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="3" fill="rgba(59,130,246,0.1)"/><circle cx="80" cy="30" r="2" fill="rgba(96,165,250,0.1)"/><circle cx="30" cy="80" r="4" fill="rgba(219,234,254,0.1)"/><circle cx="70" cy="70" r="2.5" fill="rgba(59,130,246,0.1)"/><circle cx="10" cy="60" r="3.5" fill="rgba(96,165,250,0.1)"/><circle cx="90" cy="10" r="2" fill="rgba(219,234,254,0.1)"/></svg>') repeat;
+            animation: inkSplatter 30s linear infinite;
+            pointer-events: none;
         }
 
         .contact-content {
-            text-align: center;
-            max-width: 600px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info {
+            text-align: left;
+        }
+
+        .contact-form-container {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(59, 130, 246, 0.15));
+            padding: 3rem;
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa, #dbeafe, #3b82f6);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
         }
 
         .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #dbeafe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
         }
 
         .contact-info p {
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .contact-form h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ffffff, #dbeafe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #dbeafe;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(59, 130, 246, 0.6);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
         }
 
         .contact-links {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
-            align-items: center;
+            gap: 1.5rem;
+            align-items: flex-start;
         }
 
         .contact-link {
             display: inline-flex;
             align-items: center;
             gap: 1rem;
-            background: rgba(59, 130, 246, 0.1);
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(59, 130, 246, 0.15));
+            padding: 1.2rem 2rem;
+            border-radius: 20px;
             color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            min-width: 300px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
         }
 
         .contact-link:hover {
-            background: rgba(59, 130, 246, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(59, 130, 246, 0.25));
+            transform: translateY(-5px) translateX(10px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-link:hover::before {
+            left: 100%;
         }
 
         .contact-link i {
@@ -1086,12 +1264,21 @@
                 grid-template-columns: 1fr;
             }
             
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
             .contact-links {
                 align-items: stretch;
             }
             
             .contact-link {
                 min-width: auto;
+            }
+            
+            .contact-form-container {
+                padding: 2rem;
             }
             
             .footer-content {
@@ -1183,6 +1370,24 @@
             }
             100% {
                 background-position: 200% 0;
+            }
+        }
+
+        @keyframes inkSplatter {
+            0% {
+                transform: translateX(0) translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateX(-10px) translateY(-5px) rotate(1deg);
+            }
+            50% {
+                transform: translateX(5px) translateY(-10px) rotate(-1deg);
+            }
+            75% {
+                transform: translateX(-5px) translateY(5px) rotate(0.5deg);
+            }
+            100% {
+                transform: translateX(0) translateY(0) rotate(0deg);
             }
         }
     </style>
@@ -1428,7 +1633,7 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <h3>Let's Connect</h3>
-                    <p>I'm always interested in discussing biotechnology, research opportunities, and potential collaborations.</p>
+                    <p>I'm always interested in discussing biotechnology, research opportunities, and potential collaborations. Feel free to reach out through any of the channels below or use the contact form.</p>
                     <div class="contact-links">
                         <a href="mailto:vindhi.akmeemana@gmail.com" class="contact-link">
                             <i class="fas fa-envelope"></i>
@@ -1443,6 +1648,30 @@
                             LinkedIn Profile
                         </a>
                     </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <h3>Send Message</h3>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project, collaboration idea, or just say hello!" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1542,6 +1771,42 @@
                 hero.style.transform = `translate3d(0, ${rate}px, 0)`;
             }
         });
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(this);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const subject = formData.get('subject');
+                const message = formData.get('message');
+                
+                // Create mailto link
+                const mailtoLink = `mailto:vindhi.akmeemana@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+                
+                // Open email client
+                window.location.href = mailtoLink;
+                
+                // Show success message
+                const submitBtn = this.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                
+                // Reset form
+                this.reset();
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = 'linear-gradient(135deg, #3b82f6, #1d4ed8)';
+                }, 3000);
+            });
+        }
     </script>
 </body>
 </html>
