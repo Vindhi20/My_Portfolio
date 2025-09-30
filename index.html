@@ -1379,6 +1379,35 @@
             line-height: 1.6;
         }
 
+        .two-column {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .activity-img-col {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .activity-img-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .activity-img-col:hover img {
+            transform: scale(1.1);
+        }
+
+        .activity-content-col {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
         /* Contact Section */
         .contact {
             padding: 6rem 0;
@@ -2303,18 +2332,26 @@
             <div class="extracurricular">
                 <h3>Extracurricular Activities</h3>
                 <div class="activity-grid">
-                    <div class="activity-card">
-                        <img src="images/aiesec.jpg" alt="AIESEC Activity">
-                        <div class="activity-content">
-                            <h4>AIESEC Member</h4>
-                            <p>Active participant in global youth leadership programs and cultural exchange initiatives.</p>
+                    <div class="activity-card two-column">
+                        <div class="activity-img-col">
+                            <img src="images/aiesec.jpg" alt="AIESEC Activity">
+                        </div>
+                        <div class="activity-content-col">
+                            <div class="activity-content">
+                                <h4>AIESEC Member</h4>
+                                <p>Active participant in global youth leadership programs and cultural exchange initiatives.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="activity-card">
-                        <img src="images/dancing.jpg" alt="Dancing Performance">
-                        <div class="activity-content">
-                            <h4>Dance Performances</h4>
-                            <p>Regular performances at college events and cultural festivals showcasing traditional and contemporary dance.</p>
+                    <div class="activity-card two-column">
+                        <div class="activity-img-col">
+                            <img src="images/dancing.jpg" alt="Dancing Performance">
+                        </div>
+                        <div class="activity-content-col">
+                            <div class="activity-content">
+                                <h4>Dance Performances</h4>
+                                <p>Regular performances at college events and cultural festivals showcasing traditional and contemporary dance.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
