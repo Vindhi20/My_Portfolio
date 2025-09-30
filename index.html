@@ -299,33 +299,284 @@
 
         /* About Section */
         .about {
-            padding: 6rem 0;
-            background: #1e293b;
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(96, 165, 250, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(219, 234, 254, 0.05) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .about::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(59,130,246,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
+            animation: gridMove 30s linear infinite;
+            pointer-events: none;
         }
 
         .about-content {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-header {
             text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .about-header::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .about-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-subtitle {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-text {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(59, 130, 246, 0.1));
+            padding: 3rem;
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .about-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa, #dbeafe, #3b82f6);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .about-text:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .about-text p {
             font-size: 1.2rem;
             line-height: 1.8;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            color: #e2e8f0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-visual {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .about-card {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.15));
+            padding: 3rem;
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+            transition: all 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .about-card:hover {
+            transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
+            box-shadow: 0 30px 60px rgba(59, 130, 246, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+        }
+
+        .stat-item:hover::before {
+            left: 100%;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
             color: #cbd5e1;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
         /* Education Section */
         .education {
-            padding: 6rem 0;
-            background: #0f172a;
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(96, 165, 250, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(219, 234, 254, 0.04) 0%, transparent 50%);
+            animation: float 25s ease-in-out infinite;
+        }
+
+        .education::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="25" height="25" patternUnits="userSpaceOnUse"><circle cx="12.5" cy="12.5" r="1" fill="rgba(59,130,246,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>') repeat;
+            animation: dotsMove 40s linear infinite;
+            pointer-events: none;
+        }
+
+        .education-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .education-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .education-subtitle {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
         .education-timeline {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             position: relative;
+            z-index: 2;
         }
 
         .education-timeline::before {
@@ -333,17 +584,28 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 4px;
+            width: 6px;
             height: 100%;
-            background: linear-gradient(180deg, #3b82f6, #60a5fa);
-            border-radius: 2px;
+            background: linear-gradient(180deg, #3b82f6, #60a5fa, #dbeafe, #3b82f6);
+            background-size: 100% 200%;
+            border-radius: 3px;
+            animation: timelineFlow 4s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
         }
 
         .timeline-item {
             display: flex;
             align-items: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
             position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .timeline-item.animate-in {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .timeline-item:nth-child(odd) {
@@ -352,61 +614,133 @@
 
         .timeline-item:nth-child(odd) .timeline-content {
             text-align: right;
-            padding-right: 3rem;
+            padding-right: 4rem;
         }
 
         .timeline-item:nth-child(even) .timeline-content {
             text-align: left;
-            padding-left: 3rem;
+            padding-left: 4rem;
         }
 
         .timeline-icon {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, #3b82f6, #60a5fa);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
+            font-size: 2rem;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 2;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+            z-index: 3;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            transition: all 0.4s ease;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-icon::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: all 0.4s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .timeline-item:hover .timeline-icon {
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
+        }
+
+        .timeline-item:hover .timeline-icon::before {
+            opacity: 0.3;
         }
 
         .timeline-content {
             flex: 1;
-            background: #1e293b;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(59, 130, 246, 0.2);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(59, 130, 246, 0.1));
+            padding: 3rem;
+            border-radius: 25px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.6s ease;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa, #dbeafe, #3b82f6);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(96, 165, 250, 0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-            border-color: rgba(59, 130, 246, 0.4);
+            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 30px 60px rgba(59, 130, 246, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-content:hover::after {
+            opacity: 1;
         }
 
         .timeline-content h3 {
-            color: #3b82f6;
-            margin-bottom: 0.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .institution {
             color: #cbd5e1;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
         }
 
         .duration {
             color: #94a3b8;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            font-weight: 500;
+            background: rgba(59, 130, 246, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            display: inline-block;
+            border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         /* Skills Section */
@@ -613,6 +947,204 @@
             background: rgba(255, 255, 255, 0.2);
             border-color: rgba(255, 255, 255, 0.3);
             box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Volunteer Section */
+        .volunteer {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .volunteer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 85% 75%, rgba(96, 165, 250, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(219, 234, 254, 0.04) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .volunteer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="hearts" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M15,25 C15,20 20,15 25,15 C30,15 35,20 35,25 C35,30 25,40 15,25 Z" fill="rgba(59,130,246,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23hearts)"/></svg>') repeat;
+            animation: heartsFloat 35s linear infinite;
+            pointer-events: none;
+        }
+
+        .volunteer-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .volunteer-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .volunteer-subtitle {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .volunteer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .volunteer-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(59, 130, 246, 0.1));
+            border-radius: 25px;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.6s ease;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .volunteer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa, #dbeafe, #3b82f6);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .volunteer-card:hover {
+            transform: translateY(-15px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 30px 60px rgba(59, 130, 246, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .volunteer-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .volunteer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s ease;
+        }
+
+        .volunteer-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(96, 165, 250, 0.9));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .volunteer-card:hover .volunteer-overlay {
+            opacity: 1;
+        }
+
+        .volunteer-card:hover .volunteer-image img {
+            transform: scale(1.1);
+        }
+
+        .overlay-content {
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .overlay-content h4 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .overlay-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .volunteer-content {
+            padding: 3rem;
+        }
+
+        .volunteer-content h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .volunteer-content p {
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .volunteer-tags {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .volunteer-tag {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(96, 165, 250, 0.3));
+            color: #dbeafe;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .volunteer-tag:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(96, 165, 250, 0.4));
+            transform: translateY(-2px);
         }
 
         /* Projects Section */
@@ -1182,6 +1714,25 @@
                 gap: 2rem;
             }
             
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .volunteer-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .volunteer-card {
+                max-width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
             .timeline-item {
                 flex-direction: column !important;
             }
@@ -1390,6 +1941,53 @@
                 transform: translateX(0) translateY(0) rotate(0deg);
             }
         }
+
+        @keyframes gridMove {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            100% {
+                transform: translateX(20px) translateY(20px);
+            }
+        }
+
+        @keyframes dotsMove {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            100% {
+                transform: translateX(-25px) translateY(-25px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes timelineFlow {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 0% 200%;
+            }
+        }
+
+        @keyframes heartsFloat {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            100% {
+                transform: translateX(-30px) translateY(-30px);
+            }
+        }
     </style>
 </head>
 <body>
@@ -1404,6 +2002,7 @@
                 <a href="#about" class="nav-link">About</a>
                 <a href="#education" class="nav-link">Education</a>
                 <a href="#skills" class="nav-link">Skills</a>
+                <a href="#volunteer" class="nav-link">Volunteer</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#hobbies" class="nav-link">Hobbies</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -1443,11 +2042,42 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
             <div class="about-content">
+                <div class="about-header">
+                    <h2 class="about-title">About Me</h2>
+                    <p class="about-subtitle">Passionate Biotechnology Student & Future Research Pioneer</p>
+                </div>
+                
+                <div class="about-grid">
                 <div class="about-text">
                     <p>I am currently pursuing a BSc (Hons) in Biotechnology, where my fascination for scientific exploration is constantly growing. As an undergraduate student, I am driven by a genuine passion for research and aspire to contribute to the discovery of innovative drugs for various diseases.</p>
                     <p>Engaging with the latest advancements in biotechnology has sparked my curiosity to learn, experiment, and eventually make meaningful contributions to the field of healthcare. I am eager to develop both my laboratory skills and critical thinking, laying the foundation for a future career in scientific research and drug discovery.</p>
+                </div>
+                    
+                    <div class="about-visual">
+                        <div class="about-card">
+                            <h3 style="color: #ffffff; margin-bottom: 1.5rem; font-size: 1.5rem;">My Journey</h3>
+                            <p style="color: #e2e8f0; line-height: 1.6; margin-bottom: 1.5rem;">From curious student to aspiring researcher, my path in biotechnology is driven by a desire to make meaningful contributions to healthcare and scientific discovery.</p>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-number">3+</div>
+                                    <div class="stat-label">Years of Study</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">5+</div>
+                                    <div class="stat-label">Research Areas</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">10+</div>
+                                    <div class="stat-label">Projects</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">100%</div>
+                                    <div class="stat-label">Dedication</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1456,7 +2086,10 @@
     <!-- Education Section -->
     <section id="education" class="education">
         <div class="container">
-            <h2 class="section-title">Educational Qualifications</h2>
+            <div class="education-header">
+                <h2 class="education-title">Educational Journey</h2>
+                <p class="education-subtitle">Building the Foundation for Scientific Excellence</p>
+            </div>
             <div class="education-timeline">
                 <div class="timeline-item">
                     <div class="timeline-icon">
@@ -1521,6 +2154,61 @@
                         <a href="#" class="cert-link">
                             <i class="fas fa-certificate"></i> View Certificate
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="volunteer">
+        <div class="container">
+            <div class="volunteer-header">
+                <h2 class="volunteer-title">Volunteer Work</h2>
+                <p class="volunteer-subtitle">Making a Difference Through Community Service</p>
+            </div>
+            <div class="volunteer-grid">
+                <div class="volunteer-card">
+                    <div class="volunteer-image">
+                        <img src="images/volunteer1.jpg" alt="Down Syndrome Home Teaching">
+                        <div class="volunteer-overlay">
+                            <div class="overlay-content">
+                                <h4>Teaching & Mentoring</h4>
+                                <p>Providing educational support and creating meaningful connections with individuals with Down Syndrome through interactive learning activities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="volunteer-content">
+                        <h3>Down Syndrome Home Teaching</h3>
+                        <p>Volunteered at a local Down Syndrome home where I had the privilege of teaching and mentoring individuals with special needs. This experience taught me the importance of patience, empathy, and inclusive education. I developed creative teaching methods to make learning engaging and accessible for everyone.</p>
+                        <div class="volunteer-tags">
+                            <span class="volunteer-tag">Teaching</span>
+                            <span class="volunteer-tag">Mentoring</span>
+                            <span class="volunteer-tag">Community Service</span>
+                            <span class="volunteer-tag">Inclusive Education</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="volunteer-card">
+                    <div class="volunteer-image">
+                        <img src="images/volunteer2.jpg" alt="SciFest Project">
+                        <div class="volunteer-overlay">
+                            <div class="overlay-content">
+                                <h4>Science Education</h4>
+                                <p>Organizing and conducting science demonstrations to inspire young minds and promote scientific literacy in the community.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="volunteer-content">
+                        <h3>SciFest Project</h3>
+                        <p>Participated in SciFest, a community science festival where I helped organize interactive science demonstrations and workshops. This project allowed me to share my passion for biotechnology and scientific research with students and community members, fostering curiosity and interest in STEM fields.</p>
+                        <div class="volunteer-tags">
+                            <span class="volunteer-tag">Science Education</span>
+                            <span class="volunteer-tag">STEM Outreach</span>
+                            <span class="volunteer-tag">Event Organization</span>
+                            <span class="volunteer-tag">Public Speaking</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1757,7 +2445,7 @@
         }, observerOptions);
 
         // Observe all animated elements
-        document.querySelectorAll('.skill-tag, .project-card, .hobby-card').forEach(el => {
+        document.querySelectorAll('.skill-tag, .project-card, .hobby-card, .timeline-item, .stat-item, .volunteer-card').forEach(el => {
             observer.observe(el);
         });
 
